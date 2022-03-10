@@ -9,6 +9,7 @@ import com.exemple.test.soutnanceproject.entities.Evaluation;
 import com.exemple.test.soutnanceproject.entities.Personne;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 /**
@@ -32,18 +33,23 @@ public class EvaluationDAOImpl implements IEvaluationDAO {
         EntityManager em = DbConfig.getInstance().getEm();     
         Query q = em.createNamedQuery("Personne.findAll");
         List results = q.getResultList(); 
-        System.out.println(results);
+        //System.out.println(results);
         return results;
     }
 
     @Override
     public void addEvaluation(Evaluation evaluation) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void addPersonne(Personne personne) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        EntityManager em = DbConfig.getInstance().getEm();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(personne);
+        tx.commit();
+        em.close();
     }
     
 }

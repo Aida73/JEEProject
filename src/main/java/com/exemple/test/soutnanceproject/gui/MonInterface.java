@@ -16,11 +16,16 @@ import java.util.List;
 public class MonInterface {
     
     public static void main(String[] args) {
-        IEvaluationServices personnes = new EvaluationServicesImpl();        
+        IEvaluationServices personnes = new EvaluationServicesImpl();    
+        
+        System.out.println("Il y'a "+personnes.ListPersonnes().size()+" dans la base:");
         for(Personne a : personnes.ListPersonnes()){
-            System.out.println("Il y'a "+personnes.ListPersonnes().size()+" dans la base:");
             System.out.println(a.getNom()+" "+ a.getPrenom()+" "+a.getEmailPro());
         }
+        
+        Personne person = new Personne("Diop","Diarra","diopdiarra@ept.sn");
+        //personnes.addPersonne(person);
+        
         
     }
     
