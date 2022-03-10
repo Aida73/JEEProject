@@ -4,32 +4,39 @@
  */
 package com.exemple.test.soutnanceproject.services;
 
-import com.exemple.test.soutnanceproject.config.DbConfig;
 import com.exemple.test.soutnanceproject.dao.EvaluationDAOImpl;
 import com.exemple.test.soutnanceproject.dao.IEvaluationDAO;
 import com.exemple.test.soutnanceproject.entities.Evaluation;
+import com.exemple.test.soutnanceproject.entities.Personne;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 /**
  *
  * @author user
  */
 public class EvaluationServicesImpl implements IEvaluationServices{
-     IEvaluationDAO evaluation = new EvaluationDAOImpl();
-        
 
     @Override
-    public List<Evaluation> MalistEvaluations() {
+    public List<Evaluation> ListEvaluation() {
         
-        return evaluation.ListEvaluation();     
+        IEvaluationDAO listEvaluations = new EvaluationDAOImpl();
+        return listEvaluations.ListEvaluation();
+    } 
+
+    @Override
+    public List<Personne> ListPersonnes() {
+        IEvaluationDAO listPersonnes = new EvaluationDAOImpl();
+        return listPersonnes.ListPersonnes();
+
     }
-    
 
     @Override
     public void addEvaluation(Evaluation evaluation) {
-        
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
+    @Override
+    public void addPersonne(Personne personne) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

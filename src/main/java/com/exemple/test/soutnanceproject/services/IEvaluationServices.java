@@ -1,10 +1,10 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.exemple.test.soutnanceproject.services;
 
-import com.exemple.test.soutnanceproject.entities.Evaluation;
+import com.exemple.test.soutnanceproject.entities.*;
 import java.util.List;
 
 /**
@@ -13,8 +13,10 @@ import java.util.List;
  */
 public interface IEvaluationServices {
     
-    public List<Evaluation> MalistEvaluations(); 
+    public List<Evaluation> ListEvaluation();
+    public List<Personne> ListPersonnes();
     
     public void addEvaluation(Evaluation evaluation);
-       
+    public void addPersonne(Personne personne);
+    
 }

@@ -4,8 +4,8 @@
  */
 package com.exemple.test.soutnanceproject.entities;
 
+
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ import javax.persistence.NamedQuery;
 
 /**
  *
- * @author user
+ * @author ssidibe
  */
 @Entity
 @NamedQueries({
@@ -27,34 +27,50 @@ import javax.persistence.NamedQuery;
 public class Evaluation implements Serializable {
 
     @EmbeddedId
-    private EvaluationPk evaluationPk;
-    
+    private EvaluationPk evaluationPK;
+
     @ManyToOne
-    @MapsId("IdEvaluateur")
+    @MapsId("idEvaluateur")
     private Evaluateur evaluateur;
-    
-    
+
     @ManyToOne
     @MapsId("idMemoire")
     private Memoire memoire;
-    
+
     @ManyToOne
-    @MapsId("IdElementCompetence")
+    @MapsId("idElementCompetence")
     private Element_Competence elementCompetence;
-    
-    
     
     private Short note;
     
-    
     private String commentaire;
 
-    public EvaluationPk getEvaluationPk() {
-        return evaluationPk;
+    public String getCommentaire() {
+        return commentaire;
     }
 
-    public void setEvaluationPk(EvaluationPk evaluationPk) {
-        this.evaluationPk = evaluationPk;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
+    
+    
+
+    public Short getNote() {
+        return note;
+    }
+
+    public void setNote(Short note) {
+        this.note = note;
+    }
+    
+    
+
+    public EvaluationPk getEvaluationPK() {
+        return evaluationPK;
+    }
+
+    public void setEvaluationPK(EvaluationPk evaluationPK) {
+        this.evaluationPK = evaluationPK;
     }
 
     public Evaluateur getEvaluateur() {
@@ -81,71 +97,4 @@ public class Evaluation implements Serializable {
         this.elementCompetence = elementCompetence;
     }
 
-    public Short getNote() {
-        return note;
-    }
-
-    public void setNote(Short note) {
-        this.note = note;
-    }
-
-    public String getCommentaire() {
-        return commentaire;
-    }
-
-    public void setCommentaire(String commentaire) {
-        this.commentaire = commentaire;
-    }
-
-    
-    
-    
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.evaluationPk);
-        hash = 47 * hash + Objects.hashCode(this.evaluateur);
-        hash = 47 * hash + Objects.hashCode(this.memoire);
-        hash = 47 * hash + Objects.hashCode(this.elementCompetence);
-        hash = 47 * hash + Objects.hashCode(this.note);
-        hash = 47 * hash + Objects.hashCode(this.commentaire);
-        return hash;
-    }
-    
-    
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Evaluation other = (Evaluation) obj;
-        if (!Objects.equals(this.commentaire, other.commentaire)) {
-            return false;
-        }
-        if (!Objects.equals(this.evaluationPk, other.evaluationPk)) {
-            return false;
-        }
-        if (!Objects.equals(this.evaluateur, other.evaluateur)) {
-            return false;
-        }
-        if (!Objects.equals(this.memoire, other.memoire)) {
-            return false;
-        }
-        if (!Objects.equals(this.elementCompetence, other.elementCompetence)) {
-            return false;
-        }
-        return Objects.equals(this.note, other.note);
-    }
-    
-    
-    
-    
-    
 }

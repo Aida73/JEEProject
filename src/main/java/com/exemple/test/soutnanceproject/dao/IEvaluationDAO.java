@@ -4,8 +4,7 @@
  */
 package com.exemple.test.soutnanceproject.dao;
 
-import com.exemple.test.soutnanceproject.entities.Evaluation;
-import com.exemple.test.soutnanceproject.entities.Personne;
+import com.exemple.test.soutnanceproject.entities.*;
 import java.util.List;
 
 /**
@@ -19,5 +18,6 @@ public interface IEvaluationDAO {
     
     public void addEvaluation(Evaluation evaluation);
     public void addPersonne(Personne personne);
+    
     
 }

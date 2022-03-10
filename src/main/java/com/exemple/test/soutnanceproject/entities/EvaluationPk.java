@@ -7,37 +7,33 @@ package com.exemple.test.soutnanceproject.entities;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  *
- * @author user
+ * @author ssidibe
  */
 @Embeddable
-public class EvaluationPk implements Serializable {
-
-    private long idMemoire;
+public class EvaluationPk implements Serializable{
     
-    private long idEvaluateur;
+    private Long idMemoire;
+    
+    private Long idEvaluateur;
     
     private Short idElementCompetence;
 
-    public long getIdMemoire() {
+    public Long getIdMemoire() {
         return idMemoire;
     }
 
-    public void setIdMemoire(long idMemoire) {
+    public void setIdMemoire(Long idMemoire) {
         this.idMemoire = idMemoire;
     }
 
-    public long getIdEvaluateur() {
+    public Long getIdEvaluateur() {
         return idEvaluateur;
     }
 
-    public void setIdEvaluateur(long idEvaluateur) {
+    public void setIdEvaluateur(Long idEvaluateur) {
         this.idEvaluateur = idEvaluateur;
     }
 
@@ -48,15 +44,13 @@ public class EvaluationPk implements Serializable {
     public void setIdElementCompetence(Short idElementCompetence) {
         this.idElementCompetence = idElementCompetence;
     }
-    
-    
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + (int) (this.idMemoire ^ (this.idMemoire >>> 32));
-        hash = 97 * hash + (int) (this.idEvaluateur ^ (this.idEvaluateur >>> 32));
-        hash = 97 * hash + Objects.hashCode(this.idElementCompetence);
+        int hash = 5;
+        hash = 31 * hash + Objects.hashCode(this.idMemoire);
+        hash = 31 * hash + Objects.hashCode(this.idEvaluateur);
+        hash = 31 * hash + Objects.hashCode(this.idElementCompetence);
         return hash;
     }
 
@@ -72,16 +66,14 @@ public class EvaluationPk implements Serializable {
             return false;
         }
         final EvaluationPk other = (EvaluationPk) obj;
-        if (this.idMemoire != other.idMemoire) {
+        if (!Objects.equals(this.idMemoire, other.idMemoire)) {
             return false;
         }
-        if (this.idEvaluateur != other.idEvaluateur) {
+        if (!Objects.equals(this.idEvaluateur, other.idEvaluateur)) {
             return false;
         }
         return Objects.equals(this.idElementCompetence, other.idElementCompetence);
     }
-    
-    
     
     
     

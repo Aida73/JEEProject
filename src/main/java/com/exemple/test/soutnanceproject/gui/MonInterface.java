@@ -5,6 +5,7 @@
 package com.exemple.test.soutnanceproject.gui;
 
 import com.exemple.test.soutnanceproject.services.EvaluationServicesImpl;
+import com.exemple.test.soutnanceproject.services.IEvaluationServices;
 
 /**
  *
@@ -12,11 +13,9 @@ import com.exemple.test.soutnanceproject.services.EvaluationServicesImpl;
  */
 public class MonInterface {
     
-    
-    
     public static void main(String[] args) {
-        //
-        
+        IEvaluationServices personnes = new EvaluationServicesImpl();
+        System.out.println("l'ensemble des personnes "+personnes.ListPersonnes());
     }
     
 }
