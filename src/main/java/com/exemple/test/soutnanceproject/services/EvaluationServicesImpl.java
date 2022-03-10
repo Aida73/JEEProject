@@ -17,8 +17,7 @@ import java.util.List;
 public class EvaluationServicesImpl implements IEvaluationServices{
 
     @Override
-    public List<Evaluation> ListEvaluation() {
-        
+    public List<Evaluation> ListEvaluation() {     
         IEvaluationDAO listEvaluations = new EvaluationDAOImpl();
         return listEvaluations.ListEvaluation();
     } 

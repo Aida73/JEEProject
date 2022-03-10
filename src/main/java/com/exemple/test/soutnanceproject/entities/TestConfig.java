@@ -20,13 +20,14 @@ public class TestConfig {
     public static void main(String[] args) {
         EntityManager em = DbConfig.getInstance().getEm();
 
-        Personne p2 = new Personne("Sow", "Aida", "sowaida@ept.sn");
+        Personne p = new Personne("Sow", "Aida", "sowaida@ept.sn");
+        Personne p1 = new Personne("Bassoum", "Kadia", "bassoumkadia@ept.sn");
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        em.persist(p2);
-
+        em.persist(p);
+        em.persist(p1);
         tx.commit();
         em.close();
            

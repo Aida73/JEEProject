@@ -26,7 +26,7 @@ import javax.persistence.Transient;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Personne.findAll", query = "SELECT e FROM Personne e")
+    @NamedQuery(name = "Personne.findAll", query = "SELECT p FROM Personne p")
 })
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Personne implements Serializable {
@@ -69,6 +69,8 @@ public class Personne implements Serializable {
     
     
     
+    
+    
 
     public Long getId() {
         return id;
@@ -85,6 +87,16 @@ public class Personne implements Serializable {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+    
+    
 
     public Date getDateNaissance() {
         return dateNaissance;

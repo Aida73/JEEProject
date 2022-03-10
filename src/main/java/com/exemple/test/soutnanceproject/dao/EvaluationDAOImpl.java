@@ -31,7 +31,9 @@ public class EvaluationDAOImpl implements IEvaluationDAO {
         
         EntityManager em = DbConfig.getInstance().getEm();     
         Query q = em.createNamedQuery("Personne.findAll");
-        return q.getResultList();
+        List results = q.getResultList(); 
+        System.out.println(results);
+        return results;
     }
 
     @Override
