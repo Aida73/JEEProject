@@ -55,6 +55,20 @@ public class Memoire implements Serializable {
         return id;
     }
 
+    public Memoire() {
+    }
+
+    public Memoire(String sujet, String langue, Date dateSoutenance, String lieu, byte[] pdf, Personne etudiant) {
+        this.sujet = sujet;
+        this.langue = langue;
+        this.dateSoutenance = dateSoutenance;
+        this.lieu = lieu;
+        this.pdf = pdf;
+        this.etudiant = etudiant;
+    }
+    
+    
+
     public void setId(Long id) {
         this.id = id;
     }
