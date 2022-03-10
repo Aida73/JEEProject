@@ -7,6 +7,7 @@ package com.exemple.test.soutnanceproject.services;
 import com.exemple.test.soutnanceproject.dao.EvaluationDAOImpl;
 import com.exemple.test.soutnanceproject.dao.IEvaluationDAO;
 import com.exemple.test.soutnanceproject.entities.Evaluation;
+import com.exemple.test.soutnanceproject.entities.Institut;
 import com.exemple.test.soutnanceproject.entities.Personne;
 import java.util.List;
 
@@ -15,16 +16,18 @@ import java.util.List;
  * @author user
  */
 public class EvaluationServicesImpl implements IEvaluationServices{
+    IEvaluationDAO listEvaluations = new EvaluationDAOImpl();
+    IEvaluationDAO listInstituts = new EvaluationDAOImpl();
+    IEvaluationDAO listPersonnes = new EvaluationDAOImpl();
 
     @Override
     public List<Evaluation> ListEvaluation() {     
-        IEvaluationDAO listEvaluations = new EvaluationDAOImpl();
+        
         return listEvaluations.ListEvaluation();
     } 
 
     @Override
     public List<Personne> ListPersonnes() {
-        IEvaluationDAO listPersonnes = new EvaluationDAOImpl();
         return listPersonnes.ListPersonnes();
 
     }
@@ -35,7 +38,19 @@ public class EvaluationServicesImpl implements IEvaluationServices{
     }
 
     @Override
-    public void addPersonne(Personne personne) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public long addPersonne(Personne personne) {
+        IEvaluationDAO pers = new EvaluationDAOImpl();
+        return pers.addPersonne(personne);
+    }
+
+    @Override
+    public List<Institut> ListInstituts() {
+       return listInstituts.ListInstituts();   
+    }
+
+    @Override
+    public long addInstitut(Institut institut) {
+        
+        return listInstituts.addInstitut(institut);
     }
 }

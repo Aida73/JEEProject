@@ -25,7 +25,6 @@ public class TestConfig {
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-
         em.persist(p);
         em.persist(p1);
         tx.commit();

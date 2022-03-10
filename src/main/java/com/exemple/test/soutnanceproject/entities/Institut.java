@@ -10,15 +10,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author user
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Institut.findAll", query = "SELECT i FROM Institut i")
+})
 public class Institut implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,6 +30,15 @@ public class Institut implements Serializable {
     private String nom;
     
     private String adresse;
+
+    public Institut(String nom, String adresse) {
+        this.nom = nom;
+        this.adresse = adresse;
+    }
+    
+    public Institut() {};
+    
+    
 
     public Long getId() {
         return id;

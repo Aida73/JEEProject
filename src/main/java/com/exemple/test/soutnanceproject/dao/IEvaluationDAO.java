@@ -15,9 +15,12 @@ public interface IEvaluationDAO {
     
     public List<Evaluation> ListEvaluation();
     public List<Personne> ListPersonnes();
+    public List<Institut> ListInstituts();
     
     public void addEvaluation(Evaluation evaluation);
-    public void addPersonne(Personne personne);
+    public long addPersonne(Personne personne);
+    
+    public long addInstitut(Institut institut);
     
     
 }

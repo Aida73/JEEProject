@@ -6,6 +6,7 @@ package com.exemple.test.soutnanceproject.dao;
 
 import com.exemple.test.soutnanceproject.config.DbConfig;
 import com.exemple.test.soutnanceproject.entities.Evaluation;
+import com.exemple.test.soutnanceproject.entities.Institut;
 import com.exemple.test.soutnanceproject.entities.Personne;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -43,13 +44,36 @@ public class EvaluationDAOImpl implements IEvaluationDAO {
     }
 
     @Override
-    public void addPersonne(Personne personne) {
+    public long addPersonne(Personne personne) {
         EntityManager em = DbConfig.getInstance().getEm();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+
         em.persist(personne);
         tx.commit();
-        em.close();
+        //em.close();
+        return personne.getId();
+    }
+
+    @Override
+    public List<Institut> ListInstituts() {
+        EntityManager em = DbConfig.getInstance().getEm();     
+        Query q = em.createNamedQuery("Institut.findAll");
+        List results = q.getResultList(); 
+        //System.out.println(results);
+        return results;
+    }
+
+    @Override
+    public long addInstitut(Institut institut) {
+        EntityManager em = DbConfig.getInstance().getEm();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+
+        em.persist(institut);
+        tx.commit();
+        //em.close();
+        return institut.getId();
     }
     
 }
